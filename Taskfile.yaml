@@ -1,0 +1,17 @@
+version: "3"
+
+tasks:
+  migrations:
+    aliases:
+      - migrate
+    desc: "Run migrations"
+    cmds:
+      - go run ./cmd/migrator --storage-path=./storage/sso.db --migrations-path=./migrations
+    
+  execution:
+    aliases:
+      - exec
+    desc: "Run the service"
+    cmds:
+      - go run cmd/sso/main.go --config=./config/local.yaml
+
